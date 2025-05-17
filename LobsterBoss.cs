@@ -84,10 +84,10 @@ public class LobsterBoss : MonoBehaviour
     private void Die()
     {
      ParticleSystem newParticle = Instantiate(DieEffect);
-			// パーティクルの発生場所をこのスクリプトをアタッチしているGameObjectの場所にする。
-			newParticle.transform.position = this.transform.position;
-			// パーティクルを発生させる。
-			newParticle.Play();
+     // パーティクルの発生場所をこのスクリプトをアタッチしているGameObjectの場所にする。
+     newParticle.transform.position = this.transform.position;
+     // パーティクルを発生させる。
+      newParticle.Play();
       Debug.Log(gameObject.name + "を倒した");
       Destroy(gameObject);
       gameManager.GameClear(); //ゲームクリア関数を呼ぶ
