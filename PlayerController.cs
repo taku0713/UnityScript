@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public float headbuttDuration = 0.2f; // 頭突きの持続時間
     public LayerMask enemyLayer; // 攻撃対象
     public Transform attackPoint; // 頭突きの当たり判定位置
-   public float recoilForce = 5f; // 後ろに下がる力
+    public float recoilForce = 5f; // 後ろに下がる力
     public float recoilDuration = 0.1f; // 後退の持続時間
     private Rigidbody2D rb;
     private bool isHeadbutting = false;
@@ -31,13 +31,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 originalVelocity;
     public GameObject headbuttEffectPrefab;
     public GameObject levelUpEffectPrefab;  // レベルアップのエフェクト
-public AudioClip levelUpSound;          // レベルアップ音
-public AudioClip AttackSound;        //攻撃の音
-public Transform effectSpawnPoint;      // エフェクトを出す場所
-public GameObject attackButtonObject; // ButtonのGameObject全体（例：AttackButton）
-public EatEffect eatEffect;
-
-private int currentLevelIndex = -1;     // 現在のレベル段階（最初は未設定）
+    public AudioClip levelUpSound;          // レベルアップ音
+    public AudioClip AttackSound;        //攻撃の音
+    public Transform effectSpawnPoint;      // エフェクトを出す場所
+    public GameObject attackButtonObject; // ButtonのGameObject全体（例：AttackButton）
+    public EatEffect eatEffect;
+    private int currentLevelIndex = -1;     // 現在のレベル段階（最初は未設定）
     
     [System.Serializable]
     public class AttackRangeLevel //パワーアップレベル
@@ -47,9 +46,8 @@ private int currentLevelIndex = -1;     // 現在のレベル段階（最初は�
     }
 
     public List<AttackRangeLevel> attackRangeLevels = new List<AttackRangeLevel>();
-
     public int itemCount = 0; // 現在のアイテム数
-
+ 
     
 
     void Start()
@@ -151,7 +149,7 @@ private int currentLevelIndex = -1;     // 現在のレベル段階（最初は�
         {
             audioSource.PlayOneShot(AttackSound);
         }
-    // 🦈 頭突きで敵を判定
+    // 頭突きで敵を判定
     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, GetCurrentAttackRadius());
     foreach (Collider2D enemy in hitEnemies)
     {
