@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject gameOverMenu;  //ゲームオーバー画面参照
     public GameObject gameClear;  //ゲームクリア画面参照
-   public GameObject deathParticlePrefab;  // 死亡パーティクルのプレハブ参照
+    public GameObject deathParticlePrefab;  // 死亡パーティクルのプレハブ参照
     private bool isGameOver = false;  // ゲームオーバーフラグ設定
 
     private bool isGameCrear = false; //ゲームクリアフラグ設定
@@ -18,13 +18,13 @@ public class GameManager : MonoBehaviour
     public Animator GameOveranimator; // Animator参照
     public Animator GameClearanimator; //ゲームクリアアニメーション参照
     public AudioSource RestartAudio1; //ボタンを押した時の効果音参照
-        public AudioSource RestartAudio2; //ボタンを押した時の効果音参照
+    public AudioSource RestartAudio2; //ボタンを押した時の効果音参照
 
     public AudioClip GameOverAudio; //ゲームオーバーの効果音参照
     public AudioClip GameClearAudio; //ゲームクリアの効果音参照
     private AudioSource audioSource;    // AudioSourceコンポーネント取得
 
-   public GameObject attackButtonObject; //　攻撃ボタン参照
+    public GameObject attackButtonObject; //　攻撃ボタン参照
 
     public Text resultText;           // 最終タイム表示テキスト参照
 
