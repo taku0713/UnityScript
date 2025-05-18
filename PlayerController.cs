@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         isHeadbutting = true; //頭突き可能
         originalVelocity = rb.linearVelocity;
 
-        // 向いている方向に基づいて突進方向を決定
+        // 向いている方向に基づいて頭突き方向を決定
         float direction = transform.localScale.x > 0 ? -1f : 1f; 
         Vector2 headbuttDirection = new Vector2(direction, 0); // 水平方向のみ
         rb.linearVelocity = headbuttDirection * headbuttForce;
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
     if (headbuttEffectPrefab != null)
     {
         GameObject effectInstance = Instantiate(headbuttEffectPrefab, attackPoint.position, Quaternion.identity); //攻撃生成
-        // ここでスケールを調整（例：Lv1=1.0, Lv2=1.5, Lv3=2.0）
+        // ここでスケールを調整
         float scaleMultiplier = 1.0f + (currentLevelIndex - 1) * 0.5f;
         effectInstance.transform.localScale *= scaleMultiplier;
 
@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
               // 効果音を再生
               if (EatAudio != null && audioSource != null)
               {
-               audioSource.PlayOneShot(EatAudio, 1.0f); // 0.0（無音）～ 1.0（最大音量）
+               audioSource.PlayOneShot(EatAudio, 1.0f); 
               }
 
               itemCount++; //食べ物取得数＋１
@@ -303,7 +303,7 @@ private void UpdateLevel()
         {
             if (currentLevelIndex < i)
             {
-                // 新しいレベルに上がったら演出！
+                // 新しいレベルに上がったら演出
                 PlayLevelUpEffect();
                 currentLevelIndex = i;
             }
