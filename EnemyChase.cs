@@ -37,7 +37,7 @@ public class EnemyChase : MonoBehaviour
 
     void Update()
     {
-        //プレイヤーの位置
+        //敵とプレイヤーの距離
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         //プレイヤーが範囲内だったら
