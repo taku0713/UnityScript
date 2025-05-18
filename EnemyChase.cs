@@ -5,9 +5,8 @@ public class EnemyChase : MonoBehaviour
 {
     public Transform player;         //プレイヤーのトランスフォーム参照
     public float chaseSpeed = 2.0f;  //追いかける速度
-    public float chaseRange = 5.0f;  //プレイヤーを見つける範囲1
-    public float stopRange = 1.0f;   //追いかける範囲
-    public float maxChaseRange = 7.0f; //プレイヤーを見つける範囲2
+    public float chaseRange = 5.0f;  //プレイヤーを見つける範囲
+    public float maxChaseRange = 7.0f; //プレイヤーを追いかけるのをやめる範囲
 
     private SpriteRenderer spriteRenderer;  //スプライト参照
     private bool isChasing = false; //追いかける状態設定
@@ -41,15 +40,11 @@ public class EnemyChase : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         //プレイヤーが範囲内だったら
-        if (distanceToPlayer < chaseRange && distanceToPlayer > stopRange)
+        if (distanceToPlayer < chaseRange )
         {
             isChasing = true;
         }
-　　　　　//プレイヤーが範囲外だったら
-        else if (distanceToPlayer <= stopRange)
-        {
-            isChasing = false;
-        }
+　　　　
         //プレイヤーが範囲外だったら
         else if (distanceToPlayer > maxChaseRange)
         {
@@ -92,8 +87,6 @@ public class EnemyChase : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);  
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, stopRange);   
-        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, maxChaseRange); 
     }
 
