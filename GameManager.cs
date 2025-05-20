@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
      if (isGameOver || isGameCrear) return;  // すでにゲームオーバーなら処理しない
         isGameOver = true;
 
-       attackButtonObject.SetActive(false); // 👈 ボタンそのものを非表示にする
+       attackButtonObject.SetActive(false); // ボタンそのものを非表示にする
 
 
         // プレイヤーの位置に死亡パーティクルを生成
